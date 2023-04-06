@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.custom-search {
+    width: 400px!important;
+    border-top-right-radius: 0!important;
+    border-bottom-right-radius: 0!important;
+}
+
+.custom-search-btn {
+    border-top-left-radius: 0!important;
+    border-bottom-left-radius: 0!important;
+}
+
+div.wrap-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div.scroll-container {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+/* For rating coloring */
+span.review-None { background-color: grey; }
+span.review-1 { background-color: red; }
+span.review-2 { background-color: rgb(205, 133, 0); }
+span.review-3 { background-color: #adad00; }
+span.review-4 { background-color: #68cd32; }
+span.review-5 { background-color: green; }
+span.review-None, span.review-1, span.review-2, span.review-3, span.review-4, span.review-5 {
+    padding: 1px 4px;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+}
+
+button.fav-button {
+    margin-left: 5vw;
+    background: none;
+    border: none;
+}
+
+/* CATEGORY RELATED STUFF STARTS */
+
+div.category-container {
+    width: 40%;
+    margin: auto;
+    padding: 20px;
+    background-color: whitesmoke;
+    border-radius: 8px;
+}
+
+div.category-card {
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
+    text-align: center;
+    border: none;
+    background-color: white;
+    width: 40%;
+
+    border-radius: 6px;
+
+    transition-duration: 250ms;
+}
+
+.category-card:hover {
+    box-shadow: 0 4px 8px 0 rgba(255, 0, 0, 0.2);
+}
+
+.category-card a,
+.category-card a:hover {
+    color: red;
+    text-decoration: none;
+}
+/* CATEGORY STUFF ENDS */
+
+.card {
+    display: inline-block !important;
+    white-space: normal;
+}
+
+div.login-body {
+    margin: auto;
+    margin-bottom: 60px;
+    width: 25%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+div.suggested-container {
+    width: 100%;
+    padding: 20px;
+    background-color: whitesmoke;
+    border-radius: 8px;
+}
+
+div.card img {
+    width: 100%;
+}
+
+.text-warn {color: red;}
+
+/* for fontawesome icons */
+.fa-solid {
+    margin-right: 5px;
+}
+
+button.review-del {
+    float: right;
+    background: none;
+    border: none;
+    margin-top: 10px;
+    color: black;
+    transition: all 150ms ;
+}
+
+button.review-del:hover { 
+    color: #ba0f0f;
+    transform: scale(1.1); 
+}
+
+footer {
+    background-color: #ba0f0f;
+}
