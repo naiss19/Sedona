@@ -26,18 +26,29 @@ $journals = $_POST["journals"];
 $quality = $_POST["quality"];
 
 // Construct the SQL INSERT statement
+/*
 $sql = "INSERT INTO PublicationTest (Department, Journal, Quality)
         VALUES ('$department', '$journals', '$quality')";
-/*
-$sql = "SELECT * FROM INTO Publication (Department, Journals, 'Row', 'Number', Quality)
-        VALUES ('$department', '$journals', '$row', '$number', '$quality')";
-        */
+*/
+$sql = "SELECT * FROM INTO Faculty;";
 // Execute the SQL statement and check for errors
 if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
+
+echo "Returned rows are: " . mysqli_num_rows($result);
+$rowNum = mysqli_num_rows($result);
+$row = mysqli_fetch_assoc($result);
+//run a for loop to print all of the results from the sql query
+for ($i=0; $i < $rowNum; $i++) { 
+    echo "<pre>";
+    print_r ($row);
+    echo "</pre>";
+    echo "<br>";
+}
+
 
 // Close the database connection
 mysqli_close($conn);
