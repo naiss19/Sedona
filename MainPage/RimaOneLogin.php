@@ -26,7 +26,7 @@ $inputPassword = $_POST["inputPassword"];
 
 // Construct the SQL INSERT statement
 $sql = "SELECT FacultyID FROM Users 
-        WHERE UniqueID = $username AND Password = $inputPassword";
+        WHERE UniqueID = $username && Password = $inputPassword";
 // Execute the SQL statement and check for errors
 if (mysqli_query($conn, $sql)) {
     echo "Data Pulled Successfully";
@@ -38,6 +38,10 @@ echo "Returned rows are: " . mysqli_num_rows($result);
 $rowNum = mysqli_num_rows($result);
 $row = mysqli_fetch_assoc($result);
 //run a for loop to print all of the results from the sql query
+if($rowNum>0) echo("rowNum>0 is " . $rowNum);
+
+
+
 for ($i=0; $i < $rowNum; $i++) { 
     echo "<pre>";
     print_r ($row);
