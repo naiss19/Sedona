@@ -23,17 +23,17 @@
                                 <div class="card-header">
                                     <h3 class="text-center font-weight-light my-4">RimaOne Login</h3>
                                 </div>
-                                <div class="card-body">
-                                    <form>
+                                <div class="ca  rd-body">
+                                    <form action="RimaOneLogin.php" method="post">
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="username" type="email"
+                                            <input class="form-control" id="username" name="username" type="text"
                                                 placeholder="uniqueID" />
-                                            <label for="username">Username</label>
+                                            <label type="text" id="username" for="username">Username</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputPassword" type="password"
-                                                placeholder="Password" />
-                                            <label for="inputPassword">Password</label>
+                                            <input class="form-control" id="inputPassword" name="inputPassword"
+                                                type="password" placeholder="Password" />
+                                            <label type="text" id="inputPassword" for="inputPassword">Password</label>
                                         </div>
                                         <div class="form-check mb-3">
                                             <input class="form-check-input" id="inputRememberPassword" type="checkbox"
@@ -43,18 +43,20 @@
                                         </div>
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                             <a class="small" href="password.html">Forgot Password?</a>
-                                            <a class="btn btn-primary" href="index.html">Login</a>
+                                            <button type="submit" class="btn btn-primary">Login</button>
                                         </div>
                                     </form>
-                                </div>
-                                <div class="card-footer text-center py-3">
-                                    <div class="small"><a href="RimaOneRegister.html">Need an account? Sign up!</a>
+                                    <div class="container mt-5">
+
+                                    </div>
+                                    <div class="card-footer text-center py-3">
+                                        <div class="small"><a href="RimaOneRegister.html">Need an account? Sign up!</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </main>
         </div>
         <div id="layoutAuthentication_footer">
