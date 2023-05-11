@@ -32,7 +32,7 @@ $sql = "INSERT INTO PublicationTest (Department, Journal, Quality)
 */
 $sql = "SELECT * FROM INTO Faculty;";
 // Execute the SQL statement and check for errors
-if (mysqli_query($conn, $sql)) {
+if ($result=mysqli_query($conn, $sql)) {
     echo "New record created successfully";
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
