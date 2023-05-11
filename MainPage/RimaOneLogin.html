@@ -12,6 +12,7 @@
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
+
 <body class="bg-primary">
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
@@ -78,5 +79,17 @@
         crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
 </body>
+<script>
+    // Get the "notFound" parameter value from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const notFound = urlParams.get('notFound');
+    console.log("notFound value: " + notFound);
+
+    // Use the "notFound" parameter value in an if statement
+    if (notFound === 'true') {
+        // Do something if "notFound" is true
+        alert('The Username and Password combination was not found');
+    } 
+</script>
 
 </html>
