@@ -1,4 +1,5 @@
 <?php
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -19,11 +20,13 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 print("Connect ran successfully");
+$inputusername = $_POST["username"];
+$inputPassword = $_POST["inputPassword"];
 // Construct the SQL INSERT statement
 $sql = "SELECT FacultyID FROM Users 
-        WHERE UniqueID = '$username' && UserPassword = '$inputPassword'";
+        WHERE UniqueID = '$inputusername' && UserPassword = '$inputPassword'";
 // Execute the SQL statement and check for errors
-if (mysqli_query($conn, $sql)) {
+if ($result = mysqli_query($conn, $sql)) {
     echo "Data Pulled Successfully";
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -32,15 +35,22 @@ if (mysqli_query($conn, $sql)) {
 echo "Returned rows are: " . mysqli_num_rows($result);
 $rowNum = mysqli_num_rows($result);
 $row = mysqli_fetch_assoc($result);
-//run a for loop to print all of the results from the sql query
-if($rowNum>0) echo("rowNum>0 is " . $rowNum);
-
-for ($i=0; $i < $rowNum; $i++) { 
-    echo "<pre>";
-    print_r ($row);
-    echo "</pre>";
-    echo "<br>";
+if($rowNum==0) {
+    header("Location: RimaOneLogin.html?" . "notFound=true");
+    exit;
 }
+$queryString = http_build_query($row);
+// Get the number of fields (columns) in the result set
+$num_fields = mysqli_num_fields($result);
+
+// Loop through the fields and output the names
+for ($i = 0; $i < $num_fields; $i++) {
+    $field_info = mysqli_fetch_field_direct($result, $i);
+    echo $field_info->name . '<br>';
+}
+// Redirect to the HTML page and pass the data in the query string
+if($inputusername == "admin") header("Location: RimaOneAdmin.html?" . $field_info->name);
+if($inputusername == "jSmith") header("Location: PersonalDashboard.html?" . $queryString);
 
 // Close the database connection
 mysqli_close($conn);
