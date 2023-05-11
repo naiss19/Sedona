@@ -21,20 +21,20 @@ if (!$conn) {
 print("Connect ran successfully");
 
 // Extract the form data using $_POST
-$department = $_POST["department"];
-$journals = $_POST["journals"];
-$quality = $_POST["quality"];
+$title = $_POST["title"];
+$subtitle = $_POST["subtitle"];
+$publishedDate = $_POST["publishedDate"];
+$activityType = $_POST["activityType"];
+$paperURL = $_POST["paperURL"];
+
 
 // Construct the SQL INSERT statement
-$sql = "INSERT INTO PublicationTest (Department, Journal, Quality)
-        VALUES ('$department', '$journals', '$quality')";
-/*
-$sql = "SELECT * FROM INTO Publication (Department, Journals, 'Row', 'Number', Quality)
-        VALUES ('$department', '$journals', '$row', '$number', '$quality')";
-        */
+$sql = "INSERT INTO Paper (Title, Subtitle, PublishedDate, ActivityType, PaperURL)
+        VALUES ('$title', '$subtitle', '$publishedDate','$activityType','$paperURL')";
+
 // Execute the SQL statement and check for errors
 if (mysqli_query($conn, $sql)) {
-    echo "New record created successfully";
+    header("Location: addPub.html?" . "success=true");
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
